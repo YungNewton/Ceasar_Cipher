@@ -24,16 +24,33 @@ finalList = []
 encryptedString = ""
 for i in word:
     wordList.append(i)
-for i in range(len(wordList)):
-    if wordList[i] != " ":
-        position = key + (alphabets.index(wordList[i]))
-        if position < len(alphabets):
-            finalList.append(alphabets[position])
+if purpose.lower() == 'encrypt':
+    for i in range(len(wordList)):
+        if wordList[i] != " ":
+            position = key + (alphabets.index(wordList[i]))
+            if position < len(alphabets):
+                finalList.append(alphabets[position])
+            else:
+                position = position - 26
+                finalList.append(alphabets[position])
         else:
-            position = position - 26
-            finalList.append(alphabets[position])
-    else:
-        finalList.append(" ")
-for i in finalList:
+            finalList.append(" ")
+    for i in finalList:
+        encryptedString = encryptedString + i
+    print(f"Ceaser cipher encrypts to {encryptedString}")
+elif purpose.lower() == 'decrypt':
+    for i in range(len(wordList)):
+        if wordList[i] != " ":
+            position = (alphabets.index(wordList[i])) - key
+            if position < len(alphabets):
+                finalList.append(alphabets[position])
+            else:
+                position = position - 26
+                finalList.append(alphabets[position])
+        else:
+            finalList.append(" ")
+    for i in finalList:
+        encryptedString = encryptedString + i
+    print(f"Ceaser cipher decrypts to {encryptedString}")
 
 
