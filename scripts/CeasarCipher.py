@@ -23,7 +23,7 @@ wordList = []
 finalList = []
 encryptedString = ""
 for i in word:
-    wordList.append(i)
+    wordList.append(i.lower())
 if purpose.lower() == 'encrypt':
     for i in range(len(wordList)):
         if wordList[i] != " ":
@@ -37,7 +37,7 @@ if purpose.lower() == 'encrypt':
             finalList.append(" ")
     for i in finalList:
         encryptedString = encryptedString + i
-    print(f"Ceaser cipher encrypts to {encryptedString}")
+    print(f"Ceaser cipher encrypts to : '{encryptedString}'")
 elif purpose.lower() == 'decrypt':
     for i in range(len(wordList)):
         if wordList[i] != " ":
@@ -51,6 +51,6 @@ elif purpose.lower() == 'decrypt':
             finalList.append(" ")
     for i in finalList:
         encryptedString = encryptedString + i
-    print(f"Ceaser cipher decrypts to {encryptedString}")
+    print(f"Ceaser cipher decrypts to : '{encryptedString}'")
 
 
