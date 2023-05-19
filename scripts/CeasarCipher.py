@@ -42,10 +42,10 @@ elif purpose.lower() == 'decrypt':
     for i in range(len(wordList)):
         if wordList[i] != " ":
             position = (alphabets.index(wordList[i])) - key
-            if position < len(alphabets):
+            if position > -1:
                 finalList.append(alphabets[position])
             else:
-                position = position - 26
+                position = position + 26
                 finalList.append(alphabets[position])
         else:
             finalList.append(" ")
