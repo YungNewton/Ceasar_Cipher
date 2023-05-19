@@ -14,7 +14,9 @@ a8"     "" 88 88P'    "8a 88P'    "8a a8P_____88 88P'   "Y8
               88                                             
               88                                             ''')
 
-purpose = input("Enter 'Encode' to encrypt or 'Decode' to decrypt: ")
+purpose = ''
+while not(purpose.lower() == 'decrypt') and not(purpose.lower() == 'encrypt'):
+    purpose = input("Enter 'Encode' to encrypt or 'Decode' to decrypt: ")
 key = int(input("Enter key: "))
 word = input("Enter phrase, word or sentence: ")
 alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
@@ -38,7 +40,7 @@ if purpose.lower() == 'encrypt':
     for i in finalList:
         encryptedString = encryptedString + i
     print(f"Ceaser cipher encrypts to : '{encryptedString}'")
-elif purpose.lower() == 'decrypt':
+else:
     for i in range(len(wordList)):
         if wordList[i] != " ":
             position = (alphabets.index(wordList[i])) - key
@@ -52,5 +54,3 @@ elif purpose.lower() == 'decrypt':
     for i in finalList:
         encryptedString = encryptedString + i
     print(f"Ceaser cipher decrypts to : '{encryptedString}'")
-
-
